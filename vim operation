@@ -1,6 +1,5 @@
-        Lesson 1 SUMMARY
-
-
+                        Lesson 1 SUMMARY
+                        
   1. The cursor is moved using either the arrow keys or the hjkl keys.
          h (left)       j (down)       k (up)       l (right)
 
@@ -18,10 +17,8 @@
 NOTE: Pressing <ESC> will place you in Normal mode or will cancel
       an unwanted and partially completed command.
 
-Now continue with Lesson
 
-        Lesson 2 SUMMARY
-
+                        Lesson 2 SUMMARY
 
   1. To delete from the cursor up to the next word type:    dw
   2. To delete from the cursor to the end of a line type:    d$
@@ -42,8 +39,8 @@ Now continue with Lesson
      To undo all the changes on a line, type:  U  (capital U)
      To undo the undo's, type:                 CTRL-R
 
-        Lesson 3 SUMMARY
 
+                        Lesson 3 SUMMARY
 
   1. To put back text that has just been deleted, type   p .  This puts the
      deleted text AFTER the cursor (if a line was deleted it will go on the
@@ -60,10 +57,8 @@ Now continue with Lesson
 
          c   [number]   motion
 
-Now go on to the next lesson.
 
-        Lesson 4 SUMMARY
-
+                        Lesson 4 SUMMARY
 
   1. CTRL-G  displays your location in the file and the file status.
              G  moves to the end of the file.
@@ -84,8 +79,8 @@ Now go on to the next lesson.
      To substitute all occurrences in the file type        :%s/old/new/g
      To ask for confirmation each time add 'c'             :%s/old/new/gc
     
-        Lesson 5 SUMMARY
-
+    
+                        Lesson 5 SUMMARY
 
   1.  :!command  executes an external command.
 
@@ -104,9 +99,9 @@ Now go on to the next lesson.
 
   5.  :r !dir  reads the output of the dir command and puts it below the
       cursor position.
-
-
-        Lesson 6 SUMMARY
+      
+      
+                        Lesson 6 SUMMARY
 
   1. Type  o  to open a line BELOW the cursor and start Insert mode.
      Type  O  to open a line ABOVE the cursor.
@@ -125,3 +120,19 @@ Now go on to the next lesson.
         'is' 'incsearch'        show partial matches for a search phrase
         'hls' 'hlsearch'        highlight all matching phrases
      You can either use the long or the short option name.
+
+
+                        Lesson 7 SUMMARY
+
+  1. Type  :help  or press <F1> or <Help>  to open a help window.
+
+  2. Type  :help cmd  to find help on  cmd .
+
+  3. Type  CTRL-W CTRL-W  to jump to another window
+
+  4. Type  :q  to close the help window
+
+  5. Create a vimrc startup script to keep your preferred settings.
+
+  6. When typing a  :  command, press CTRL-D to see possible completions.
+     Press <TAB> to use one completion.
