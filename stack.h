@@ -6,6 +6,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+const int max_number_of_elem = 10;
+
 typedef struct _stack {
     void *data;
     int top;
@@ -52,9 +55,10 @@ typedef struct _stack {
  */
 //void Stack_m_del(Stack_m *s);
 Stack_m* stack_new() {
+
     Stack_m* s = (Stack_m*)malloc(sizeof(Stack_m));
     s->top = -1;
-    s->data = malloc(sizeof(s->elemSize));
+    s->data = malloc(sizeof(s->elemSize) * max_number_of_elem);
     return s;
 }
 
@@ -62,16 +66,15 @@ void stack_push(Stack_m *s, void *data) {
     s->elemSize = sizeof(data);
     s->top++;
     void* target = (char*)s->data + s->top * s->elemSize;
-    memcpy(target, data, s->elemSize);
-    
+    memmove(target, data, s->elemSize);
 }
 
-int my_stack_empty(Stack_m *s) {
+int stack_empty(Stack_m *s) {
     return s->top == -1;
 }
 
 void* stack_pop(Stack_m *s) {
-    if(my_stack_empty(s))
+    if(stack_empty(s))
         return NULL;
     else {
         void* data = malloc(s->elemSize);
@@ -83,13 +86,13 @@ void* stack_pop(Stack_m *s) {
 }
 
 void* stack_peek(Stack_m *s) {
-    if(my_stack_empty(s))
+    if(stack_empty(s))
         return NULL;
     else {
-        void* target = malloc(s->elemSize);
+        void* data = malloc(s->elemSize);
         void* source = (char*)s->data + s->top * s->elemSize;
-        memmove(target, source, s->elemSize);
-        return target;
+        memmove(data, source, s->elemSize);
+        return data;
     }
 }
 
