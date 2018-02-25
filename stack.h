@@ -9,7 +9,7 @@
 typedef struct _stack {
     void *data;
     int top;
-    int elemSize;
+    size_t elemSize;
 }Stack_m;
 /**
  * \brief Create a new empty Stack_m.
@@ -66,32 +66,34 @@ void stack_push(Stack_m *s, void *data) {
     
 }
 
+int my_stack_empty(Stack_m *s) {
+    return s->top == -1;
+}
+
 void* stack_pop(Stack_m *s) {
-    if(stack_empty(s))
+    if(my_stack_empty(s))
         return NULL;
     else {
         void* data = malloc(s->elemSize);
         void* source = (char*)s->data + s->top * s->elemSize;
-        memcpy(data, source, s->elemSize);
+        memmove(data, source, s->elemSize);
         s->top--;
         return data;
     }
 }
 
 void* stack_peek(Stack_m *s) {
-    if(stack_empty(s))
+    if(my_stack_empty(s))
         return NULL;
     else {
         void* target = malloc(s->elemSize);
         void* source = (char*)s->data + s->top * s->elemSize;
-        memcpy(target, source, s->elemSize);
+        memmove(target, source, s->elemSize);
         return target;
     }
 }
 
-int stack_empty(Stack_m *s) {
-    return s->top == -1;
-}
+
 
 void stack_del(Stack_m *s) {
     free(s->data);
